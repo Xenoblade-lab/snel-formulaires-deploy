@@ -1,0 +1,59 @@
+/* Code QR en haut à droite — pages *-editable-qr.html */
+.form-page.form-page--with-qr {
+  position: relative;
+}
+
+.form-qr-corner {
+  position: absolute;
+  z-index: 2;
+  top: 5mm;
+  right: 5mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  max-width: 88px;
+}
+
+.form-qr-mount {
+  background: #fff;
+  padding: 2px;
+  border: 1px solid #94a3b8;
+  line-height: 0;
+}
+
+.form-qr-mount img,
+.form-qr-mount canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.form-qr-hint {
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  color: #475569;
+  text-align: center;
+  line-height: 1.25;
+  max-width: 88px;
+}
+
+/* Éviter le chevauchement du QR avec l’en-tête */
+.form-page--with-qr > .snel-header,
+.form-page--with-qr > .hdr-row2,
+.form-page--with-qr > .police-hdr {
+  padding-right: 96px;
+  box-sizing: border-box;
+}
+
+@media print {
+  .form-qr-hint {
+    display: none !important;
+  }
+
+  .form-qr-mount {
+    border-color: #000;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SNEL — Fiche MVT clientèle BT (saisie + QR)</title>
+  <link rel="stylesheet" href="snel-forms.css" />
+  <link rel="stylesheet" href="snel-forms-editable.css" />
+  <link rel="stylesheet" href="snel-forms-qr.css" />
+  <style>
+    @media print {
+      @page { size: A4 landscape; margin: 8mm; }
+    }
+    .hdr-row2 { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .fiche-num { display: flex; align-items: baseline; gap: 8px; flex: 1; flex-wrap: wrap; }
+    .gestion-cli { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+    /* Grilles alignées sur le formulaire papier : cases réparties sur la largeur utile */
+    .body-mvt-landscape .cell-row { justify-content: space-between; gap: 6px 10px; }
+    .body-mvt-landscape .cell-group { flex: 0 0 auto; }
+    .objet-zone { min-height: 56px; border: 1px solid #aaa; margin: 6px 0 8px; background: #fafafa; }
+    .itipo { font-size: 7px; text-align: right; margin-top: 4px; color: #444; }
+    .stamp-dbc { font-size: 8px; font-weight: 700; color: #b91c1c; margin-top: 2px; }
+  </style>
+</head>
+<body class="body-mvt-landscape form-saisie">
+  <p class="no-print" style="text-align:center;font-family:sans-serif;margin-bottom:8px;">
+    <a href="index.html">← Index formulaires</a> · <strong>Version saisie + QR</strong> (paysage) · <strong>Ctrl+P</strong> → A4 paysage
+  </p>
+  <div class="toolbar-saisie no-print">
+    <button type="button" onclick="window.print()">Imprimer</button>
+    <a href="fiche-mvt-clientele-bt-editable.html">Sans QR</a>
+    <a href="fiche-mvt-clientele-bt.html">Version affiche seule</a>
+  </div>
+
+  <div class="form-page form-page--landscape form-page--with-qr" style="border-width:3px;">
+    <div class="form-qr-corner" aria-label="Code QR">
+      <div class="form-qr-mount"></div>
+      <span class="form-qr-hint no-print">Encodé : URL de cette page (ou <code>data-qr-text</code> sur <code>body</code>).</span>
+    </div>
+    <header class="snel-header">
+      <div class="snel-brand">
+        <img class="snel-logo-img" src="snel-logo.png" width="48" height="48" alt="SNEL — Société nationale d'électricité" />
+        <div>
+          <div class="snel-logo-text" style="max-width:220px;font-size:9px;">SOCIÉTÉ NATIONALE D'ÉLECTRICITÉ</div>
+          <div class="stamp-dbc">DBC/DCK</div>
+        </div>
+      </div>
+      <div class="gestion-cli">Gestion Clientèle</div>
+    </header>
+
+    <div class="hdr-row2">
+      <div class="fiche-num">
+        <span class="label" style="white-space:normal;">FICHE MVT CLIENTELE BT n°</span>
+        <span class="dots" style="min-width:180px;flex:1"></span>
+      </div>
+      <div>
+        <span class="label">n° PA</span>
+        <span class="cell-strip" style="width:112px" title="8"></span>
+      </div>
+    </div>
+
+    <hr class="hr-thick" />
+
+    <h3 class="section-title">Abonnement</h3>
+    <div class="cell-row">
+      <div class="cell-group"><span class="lbl">Nom et Post nom</span><span class="cell-strip" style="width:294px" title="21"></span></div>
+      <div class="cell-group"><span class="lbl">Matricule</span><span class="cell-strip" style="width:140px" title="10"></span></div>
+      <div class="cell-group"><span class="lbl">Typ. Cli</span><span class="cell-strip" style="width:28px" title="2"></span></div>
+      <div class="cell-group"><span class="lbl">Tarif</span><span class="cell-strip" style="width:28px" title="2"></span></div>
+      <div class="cell-group"><span class="lbl">Regt. Fact</span><span class="cell-strip" style="width:42px" title="3"></span></div>
+    </div>
+    <div class="cell-row">
+      <div class="cell-group"><span class="lbl">Dom.</span><span class="cell-strip" style="width:14px" title="1"></span></div>
+      <div class="cell-group"><span class="lbl">Banque</span><span class="cell-strip" style="width:14px" title="1"></span></div>
+      <div class="cell-group"><span class="lbl">Rue</span><span class="cell-strip" style="width:28px" title="2"></span></div>
+      <div class="cell-group"><span class="lbl">N° Compte</span><span class="cell-strip" style="width:154px" title="11"></span></div>
+      <div class="cell-group"><span class="lbl">B.P.</span><span class="cell-strip" style="width:70px" title="5"></span></div>
+      <div class="cell-group"><span class="lbl">N° Immeuble</span><span class="cell-strip" style="width:70px" title="5"></span></div>
+      <div class="cell-group"><span class="lbl">Bis</span><span class="cell-strip" style="width:14px" title="1"></span></div>
+    </div>
+    <div class="cell-row">
+      <div class="cell-group"><span class="lbl">Zone</span><span class="cell-strip" style="width:140px" title="10"></span></div>
+      <div class="cell-group"><span class="lbl">Region</span><span class="cell-strip" style="width:154px" title="11"></span></div>
+    </div>
+
+    <h3 class="section-title">Adresse du PA</h3>
+    <div class="row"><span class="label-norm">Av./ Rue :</span><span class="dots"></span></div>
+    <div class="cell-row">
+      <div class="cell-group"><span class="lbl">C. Zone</span><span class="cell-strip" style="width:42px" title="3"></span></div>
+      <div class="cell-group"><span class="lbl">N° Rue</span><span class="cell-strip" style="width:56px" title="4"></span></div>
+      <div class="cell-group"><span class="lbl">N° Immeuble</span><span class="cell-strip" style="width:56px" title="4"></span></div>
+      <div class="cell-group"><span class="lbl">Bis</span><span class="cell-strip" style="width:14px" title="1"></span></div>
+      <div class="cell-group"><span class="lbl">C.S.</span><span class="cell-strip" style="width:14px" title="1"></span></div>
+      <div class="cell-group"><span class="lbl">N° Cadastre</span><span class="cell-strip" style="width:42px" title="3"></span></div>
+      <div class="cell-group"><span class="lbl">Etage</span><span class="cell-strip" style="width:28px" title="2"></span></div>
+      <div class="cell-group"><span class="lbl">Appartement</span><span class="cell-strip" style="width:56px" title="4"></span></div>
+    </div>
+    <div class="cell-row">
+      <div class="cell-group"><span class="lbl">Nom d'Immeuble</span><span class="cell-strip" style="width:140px" title="10"></span></div>
+      <div class="cell-group"><span class="lbl">Cabine</span><span class="cell-strip" style="width:56px" title="4"></span></div>
+      <div class="cell-group"><span class="lbl">Départ</span><span class="cell-strip" style="width:28px" title="2"></span></div>
+      <div class="cell-group"><span class="lbl">Section</span><span class="cell-strip" style="width:28px" title="2"></span></div>
+    </div>
+
+    <h3 class="section-title">Relevé</h3>
+    <div class="cell-row">
+      <div class="cell-group"><span class="lbl">Tranche</span><span class="cell-strip" style="width:28px" title="2"></span></div>
+      <div class="cell-group"><span class="lbl">Tournée</span><span class="cell-strip" style="width:42px" title="3"></span></div>
+      <div class="cell-group"><span class="lbl">Urtv.</span><span class="cell-strip" style="width:42px" title="3"></span></div>
+      <div class="cell-group"><span class="lbl">N° Séquence</span><span class="cell-strip" style="width:56px" title="4"></span></div>
+      <div class="cell-group"><span class="lbl">Index</span><span class="cell-strip" style="width:112px" title="8"></span></div>
+    </div>
+
+    <h3 class="section-title">Facturation</h3>
+    <div class="cell-row">
+      <div class="cell-group"><span class="lbl">C. pal. part.</span><span class="cell-strip" style="width:42px" title="3"></span></div>
+      <div class="cell-group"><span class="lbl">ET. P.A.</span><span class="cell-strip" style="width:28px" title="2"></span></div>
+      <div class="cell-group"><span class="lbl">Cons. Moy.</span><span class="cell-strip" style="width:56px" title="4"></span></div>
+      <div class="cell-group"><span class="lbl">Cons. Moy.</span><span class="cell-strip" style="width:98px" title="7"></span></div>
+    </div>
+
+    <h3 class="section-title">Objet du mouvement</h3>
+    <textarea class="objet-zone objet-input" rows="5" placeholder="Objet du mouvement…"></textarea>
+
+    <hr class="hr-thin" />
+    <div class="footer-sign-lines">
+      <div class="row"><span class="label-norm">Etablie le</span><span class="dots" style="min-width:80px"></span><span>/</span><span class="dots" style="min-width:36px"></span><span>/ 20</span><span class="dots" style="min-width:40px"></span><span class="label-norm">Par</span><span class="dots" style="min-width:200px"></span></div>
+      <div class="row"><span class="label-norm">Visée par :</span><span class="dots"></span></div>
+      <div class="row"><span class="label-norm">Encodée par :</span><span class="dots"></span></div>
+    </div>
+    <p class="right-note" style="margin-top:10px;font-weight:600;">Agence principale, Gestion clientèle DCK</p>
+    <p class="itipo">ITIPO BUSINESS</p>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script src="snel-forms-editable.js" defer></script>
+  <script src="snel-forms-qr.js" defer></script>
+</body>
+</html>

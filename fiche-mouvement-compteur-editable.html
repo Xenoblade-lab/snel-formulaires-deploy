@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SNEL — Fiche mouvement compteur (saisie)</title>
+  <link rel="stylesheet" href="snel-forms.css" />
+  <link rel="stylesheet" href="snel-forms-editable.css" />
+  <style>
+    .mvt-top { display: flex; justify-content: flex-end; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+    .ordre-line { font-size: 9px; font-weight: 700; text-align: center; margin: 6px 0; text-transform: uppercase; }
+    .subsect { font-size: 9px; font-weight: 800; margin-top: 8px; margin-bottom: 4px; text-decoration: underline; }
+    .avis-title { font-size: 11px; font-weight: 800; text-align: center; text-decoration: underline; margin: 12px 0 8px; text-transform: uppercase; }
+    .avis-grid { display: flex; gap: 16px; font-size: 9px; font-weight: 700; margin-bottom: 8px; }
+  </style>
+</head>
+<body class="form-saisie">
+  <p class="no-print" style="text-align:center;font-family:sans-serif;margin-bottom:8px;">
+    <a href="index.html">← Index formulaires</a> · <strong>Version saisie</strong> — cases et lignes remplissables · <strong>Ctrl+P</strong> pour imprimer
+  </p>
+  <div class="toolbar-saisie no-print">
+    <button type="button" onclick="window.print()">Imprimer</button>
+    <a href="fiche-mouvement-compteur-editable-qr.html">Avec QR</a>
+    <a href="fiche-mouvement-compteur.html">Version affiche seule (non saisie)</a>
+  </div>
+
+  <div class="form-page form-wrap-pos">
+    <header class="snel-header">
+      <div class="snel-brand">
+        <img class="snel-logo-img" src="snel-logo.png" width="48" height="48" alt="SNEL" />
+        <div>
+          <div class="snel-logo-text">SOCIÉTÉ NATIONALE D'ÉLECTRICITÉ</div>
+          <div class="snel-stamp">DEC/DCK · DPI</div>
+        </div>
+      </div>
+      <div class="form-title">
+        <h1>Fiche mouvement compteur</h1>
+        <div class="mvt-top">
+          <span class="label">MVT COMPTEUR n°</span><span class="dots" style="min-width:120px"></span>
+          <span class="label">n° PA</span>
+          <span class="cells">
+            <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <p class="ordre-line">Ordre de placement — enlèvement — remplacement <span style="font-weight:400">(1)</span></p>
+    <hr class="hr-thick" />
+
+    <div class="row">
+      <span class="label">Dressé par service</span><span class="dots"></span>
+      <span class="label">Agent</span><span class="dots" style="min-width:100px"></span>
+      <span class="label">Le</span>
+      <span class="dots" style="min-width:80px"></span><span style="font-size:9px">/ &nbsp;&nbsp; / 201</span>
+    </div>
+    <div class="row">
+      <span class="label">Nom de l'abonné :</span><span class="dots"></span>
+      <span class="label">Tarif</span>
+      <span class="cells"><span class="cell"></span><span class="cell"></span></span>
+    </div>
+    <div class="row">
+      <span class="label">Adresse du P.A. Rue</span><span class="dots"></span>
+      <span class="label">N°</span><span class="dots" style="min-width:50px"></span>
+      <span class="label">Etage</span><span class="dots" style="min-width:40px"></span>
+      <span class="label">Appt</span><span class="dots" style="min-width:40px"></span>
+    </div>
+    <div class="row">
+      <span class="label">Commune</span><span class="dots"></span>
+      <span class="label">Tournée n°</span><span class="dots" style="min-width:120px"></span>
+    </div>
+
+    <hr class="hr-thick" />
+
+    <div class="meter-visa-wrapper">
+      <div class="meter-visa-main">
+        <div class="exec-row">
+          <div class="exec-left">
+            <span class="label-norm">Exécuté par :</span>
+            <span class="exec-dots"></span>
+          </div>
+          <div class="exec-right">
+            <span class="lbl-le">LE</span>
+            <span class="cells" aria-label="Date sur 7 cases">
+              <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+              <span class="cell"></span><span class="cell"></span><span class="cell"></span>
+            </span>
+          </div>
+        </div>
+
+        <p class="subsect">Compteur enlevé</p>
+        <div class="compteur-enleve-row">
+          <div class="cell-group">
+            <span class="lbl">Numéro</span>
+            <span class="cells" aria-label="8 cases">
+              <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+              <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+            </span>
+          </div>
+          <div class="cell-group">
+            <span class="lbl">Index final</span>
+            <span class="cells" aria-label="8 cases">
+              <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+              <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+            </span>
+          </div>
+        </div>
+
+        <p class="subsect">Compteur placé</p>
+        <div class="compteur-place-row">
+          <div class="cell-group"><span class="lbl">Codmarq</span><span class="cells"><span class="cell"></span><span class="cell"></span></span></div>
+          <div class="cell-group"><span class="lbl">Numéro</span><span class="cells">
+            <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+          </span></div>
+          <div class="cell-group"><span class="lbl">M/T</span><span class="cells"><span class="cell"></span><span class="cell"></span></span></div>
+          <div class="cell-group"><span class="lbl">Calmin</span><span class="cells"><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></span></div>
+          <div class="cell-group"><span class="lbl">Calmax</span><span class="cells"><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></span></div>
+          <div class="cell-group"><span class="lbl">N/r</span><span class="cells"><span class="cell"></span></span></div>
+        </div>
+        <div class="compteur-place-row">
+          <div class="cell-group"><span class="lbl">Date étalon</span><span class="cells">
+            <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+          </span></div>
+          <div class="cell-group"><span class="lbl">Coéf. Mult</span><span class="cells"><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></span></div>
+          <div class="cell-group"><span class="lbl">Index départ</span><span class="cells">
+            <span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+          </span></div>
+        </div>
+      </div>
+      <div class="visa-col">
+        <div class="visa-split">
+          <div class="visa-h">VISA<br />RESPONSABLE</div>
+          <textarea class="visa-body visa-input" rows="6" placeholder="Visa / cachet / remarques"></textarea>
+        </div>
+        <div class="visa-split">
+          <div class="visa-h">VISA<br />ENCODEUR</div>
+          <textarea class="visa-body visa-input" rows="6" placeholder="Visa / cachet / remarques"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <hr class="hr-thin" />
+    <div class="row"><span class="label-norm">N° scellés coffret compteur ou coffret abonné</span><span class="dots"></span></div>
+    <div class="row"><span class="label-norm">Non exécuté — Motif</span><span class="dots"></span></div>
+    <div class="row"><span class="label-norm">Nouvelles instructions d'exécution</span><span class="dots"></span></div>
+    <div class="row"><span class="label-norm">Réf</span><span class="dots"></span></div>
+    <div class="row" style="justify-content:flex-end;">
+      <span class="label-norm">Le</span><span class="dots" style="min-width:70px"></span><span>/</span><span class="dots" style="min-width:40px"></span><span>/ 201</span>
+      <span class="label-norm" style="margin-left:12px">Le préposé S.N.EL.</span>
+    </div>
+
+    <div class="row row-tight">
+      <span class="label-norm">Câble placé</span><span class="dots"></span>
+      <span class="label-norm">mètres de</span><span class="dots" style="min-width:50px"></span>
+      <span class="label-norm">mm carrés</span>
+    </div>
+    <div class="row row-tight">
+      <span class="label-norm">Fusibles placés</span><span class="dots"></span>
+      <span class="label-norm">Fusibles : diruptors de</span><span class="dots" style="min-width:60px"></span>
+      <span class="label-norm">Amp.</span>
+    </div>
+    <div class="row row-tight">
+      <span class="label-norm">Sce LABO — compteur</span><span class="dots"></span>
+      <span class="label-norm">Rentré au labo le</span><span class="dots" style="min-width:100px"></span><span>/</span><span class="dots" style="min-width:30px"></span><span>/ 201</span>
+    </div>
+    <div class="row row-tight">
+      <span class="label-norm">Compteur</span><span class="dots"></span>
+      <span class="label-norm">Sortie du labo le</span><span class="dots" style="min-width:90px"></span><span>/</span><span class="dots" style="min-width:30px"></span><span>/ 201</span>
+    </div>
+    <div class="row row-tight">
+      <span class="label-norm">Fiche — ctr mise à jour le</span><span class="dots" style="min-width:100px"></span><span>/</span><span class="dots" style="min-width:30px"></span><span>/ 201</span>
+    </div>
+    <div class="row" style="justify-content:flex-end;margin-top:6px;">
+      <span class="label-norm">Le préposé S.N.EL.</span><span class="dots" style="min-width:140px"></span>
+    </div>
+
+    <hr class="hr-thick" />
+    <h2 class="avis-title">Avis de non-exécution</h2>
+    <div class="avis-grid">
+      <span>OP</span><span class="dots" style="min-width:40px"></span>
+      <span>OE</span><span class="dots" style="min-width:40px"></span>
+      <span>OR</span><span class="dots" style="min-width:40px"></span>
+      <span>n°</span><span class="dots" style="min-width:80px"></span>
+    </div>
+    <div class="row"><span class="label-norm">Nom :</span><span class="dots"></span></div>
+    <div class="row"><span class="label-norm">Adresse :</span><span class="dots"></span></div>
+    <div class="row"><span class="label-norm">Mvt tenu en suspens — Motif :</span><span class="dots"></span></div>
+    <div class="row" style="justify-content:flex-end;margin-top:8px;">
+      <span>Le</span><span class="dots" style="min-width:80px"></span><span>/</span><span class="dots" style="min-width:36px"></span><span>/ 201</span>
+    </div>
+
+    <div class="side-vertical">Bermak 2017</div>
+  </div>
+  <script src="snel-forms-editable.js" defer></script>
+</body>
+</html>

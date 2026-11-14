@@ -1,0 +1,474 @@
+/* Formulaires SNEL — styles partagés (impression A4) */
+:root {
+  --ink: #0a0a0a;
+  --border: #000;
+  --muted: #333;
+  --snel-blue: #003d82;
+  --snel-yellow: #f5b800;
+  --snel-red: #c41e3a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.25;
+  color: var(--ink);
+  background: #c8c8c8;
+}
+
+.form-page {
+  max-width: 210mm;
+  margin: 0 auto 1.5rem;
+  background: #fff;
+  border: 2px solid var(--border);
+  padding: 8mm 10mm 10mm;
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+}
+
+/* Fiche MVT clientèle BT — format paysage (A4 horizontal) */
+.form-page--landscape {
+  max-width: min(297mm, 100%);
+  width: 297mm;
+  min-height: 210mm;
+  padding: 6mm 8mm;
+}
+
+@media screen and (max-width: 1100px) {
+  .form-page--landscape {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+.snel-logo-img {
+  height: 44px;
+  width: auto;
+  max-width: 52px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .form-page { box-shadow: none; margin: 0; page-break-after: always; border-width: 1px; }
+  .form-page--landscape {
+    width: 100%;
+    max-width: none;
+    min-height: auto;
+    page-break-after: always;
+  }
+  .no-print { display: none !important; }
+}
+
+/* Logo SNEL simplifié (approximation charte) */
+.snel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.snel-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.snel-logo-box {
+  width: 36px;
+  height: 36px;
+  background: var(--snel-blue);
+  border: 2px solid var(--snel-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.snel-logo-box::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 6px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid var(--snel-red);
+  transform: rotate(15deg);
+}
+
+.snel-logo-a {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--snel-yellow);
+  font-family: Arial, sans-serif;
+  line-height: 1;
+}
+
+.snel-logo-text {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  max-width: 140px;
+}
+
+.snel-stamp {
+  font-size: 7px;
+  color: var(--muted);
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* Titres formulaires */
+.form-title {
+  text-align: right;
+  flex: 1;
+}
+
+.form-title h1 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: underline;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.form-title .sub {
+  font-size: 9px;
+  font-weight: 600;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* Lignes avec pointillés */
+.row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin: 5px 0;
+}
+
+.row-tight { margin: 3px 0; }
+
+.label {
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+.label-norm {
+  font-weight: 600;
+  text-transform: none;
+}
+
+.dots {
+  flex: 1;
+  min-width: 40px;
+  border-bottom: 1px dotted var(--border);
+  min-height: 14px;
+}
+
+.dots-short {
+  flex: 0;
+  width: 80px;
+  border-bottom: 1px dotted var(--border);
+  min-height: 14px;
+}
+
+/* Cases une lettre / chiffre */
+.cells {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.cell {
+  width: 14px;
+  height: 18px;
+  border: 1px solid var(--border);
+  margin-left: -1px;
+  flex-shrink: 0;
+}
+
+.cell:first-child { margin-left: 0; }
+
+/* Bande à cases (équivalent N cases × 14 px) — rendu proche du formulaire scanné */
+.cell-strip {
+  display: inline-block;
+  height: 18px;
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-image: repeating-linear-gradient(
+    to right,
+    #000 0,
+    #000 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  background-clip: padding-box;
+}
+
+.cell-row {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin: 4px 0;
+}
+
+.cell-group {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.cell-group > .lbl {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Séparateurs */
+.hr-thick {
+  border: none;
+  border-top: 3px solid var(--border);
+  margin: 10px 0 8px;
+}
+
+.hr-thin {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 6px 0;
+}
+
+.section-title {
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-transform: uppercase;
+  margin: 8px 0 4px;
+  letter-spacing: 0.03em;
+}
+
+.note-small {
+  font-size: 8px;
+  margin-top: 4px;
+}
+
+/* Bloc principal : données compteur + colonnes visas (fiche mouvement compteur) */
+.meter-visa-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(118px, 26%);
+  align-items: stretch;
+  margin-top: 8px;
+  border: 2px solid var(--border);
+  min-height: 278px;
+}
+
+.meter-visa-main {
+  padding: 8px 10px 12px;
+  border-right: 2px solid var(--border);
+}
+
+/* Cases un peu plus larges dans ce bloc (proche du formulaire papier scanné) */
+.meter-visa-main .cell {
+  width: 15px;
+  height: 20px;
+}
+
+.exec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 520px) {
+  .exec-row { flex-wrap: wrap; }
+  .exec-row .exec-right { width: 100%; flex-direction: row; align-items: flex-end; justify-content: flex-end; gap: 8px; }
+}
+
+.exec-row .exec-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.exec-row .exec-dots {
+  flex: 1;
+  min-width: 100px;
+  border-bottom: 1px dotted var(--border);
+  min-height: 16px;
+}
+
+.exec-row .exec-right {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.exec-row .lbl-le {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.compteur-enleve-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin: 8px 0 14px;
+}
+
+.compteur-place-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 6px 10px;
+}
+
+.compteur-place-row + .compteur-place-row {
+  margin-top: 10px;
+}
+
+.visa-col {
+  border: none;
+  display: flex;
+  min-height: 100%;
+  height: 100%;
+}
+
+.visa-split {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  min-width: 0;
+}
+
+.visa-split:last-child { border-right: none; }
+
+.visa-h {
+  padding: 6px 4px;
+  font-size: 7px;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  border-bottom: 2px solid var(--border);
+  background: #ececec;
+}
+
+.visa-body {
+  flex: 1;
+  min-height: 216px;
+  background: #fff;
+}
+
+.flex-2col {
+  display: grid;
+  grid-template-columns: 1fr 72px;
+  gap: 8px;
+  align-items: stretch;
+  margin-top: 6px;
+}
+
+.side-vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 8px;
+  color: #555;
+  position: absolute;
+  right: 3px;
+  top: 55%;
+  letter-spacing: 0.05em;
+}
+
+.form-wrap-pos { position: relative; }
+
+.right-note {
+  text-align: right;
+  font-size: 8px;
+  margin-top: 6px;
+}
+
+/* Police d'abonnement — haut déclaration */
+.declaration-block p {
+  margin: 6px 0;
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+.declaration-block .dots-inline {
+  display: inline-block;
+  min-width: 120px;
+  border-bottom: 1px dotted var(--border);
+  vertical-align: baseline;
+  min-height: 1em;
+}
+
+.declaration-block .dots-wide {
+  display: inline-block;
+  width: 75%;
+  max-width: 100%;
+  border-bottom: 1px dotted var(--border);
+}
+
+.admin-frame {
+  border: 3px solid var(--border);
+  padding: 8px;
+  margin-top: 12px;
+}
+
+.admin-frame .cell-row {
+  justify-content: space-between;
+  gap: 6px 10px;
+}
+
+.admin-frame .cell-group {
+  flex: 0 0 auto;
+}
+
+.admin-title {
+  font-weight: 800;
+  font-size: 10px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.abonnement-spaced {
+  letter-spacing: 0.35em;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+.footer-sign-lines {
+  margin-top: 10px;
+  font-size: 9px;
+}
+
+.footer-sign-lines .row { margin: 8px 0; }

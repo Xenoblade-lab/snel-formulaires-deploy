@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulaires SNEL — reproduction HTML</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #0f172a; }
+    h1 { font-size: 1.35rem; }
+    ul { padding-left: 1.2rem; }
+    a { color: #0369a1; font-weight: 600; }
+    .note { font-size: 0.9rem; color: #475569; margin-top: 1.5rem; padding: 1rem; background: #f1f5f9; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Formulaires SNEL (reproduction)</h1>
+  <p>Reconstitutions à partir des scans du dossier <code>Snel/image</code> — HTML + CSS. Logo officiel : <code>snel-logo.png</code> (à côté des fichiers HTML).</p>
+  <p><strong>Versions affiche</strong> (structure identique au papier, non remplissable à l’écran) :</p>
+  <ul>
+    <li><a href="fiche-mouvement-compteur.html">Fiche mouvement compteur</a> (portrait A4)</li>
+    <li><a href="fiche-mvt-clientele-bt.html">Fiche MVT clientèle BT</a> — <strong>paysage A4</strong></li>
+    <li><a href="police-abonnement.html">Police d'abonnement</a></li>
+  </ul>
+  <p><strong>Versions saisie</strong> (cases une lettre/chiffre, lignes pointillées et zones texte remplissables ; impression conserve la saisie) :</p>
+  <ul>
+    <li><a href="fiche-mouvement-compteur-editable.html">Fiche mouvement compteur — saisie</a></li>
+    <li><a href="fiche-mvt-clientele-bt-editable.html">Fiche MVT clientèle BT — saisie</a> (paysage)</li>
+    <li><a href="police-abonnement-editable.html">Police d'abonnement — saisie</a></li>
+  </ul>
+  <p><strong>Versions saisie + QR</strong> (identiques aux saisie, avec code QR en haut à droite sur la feuille ; nécessite une connexion pour charger la librairie QR depuis le CDN) :</p>
+  <ul>
+    <li><a href="fiche-mouvement-compteur-editable-qr.html">Fiche mouvement compteur — saisie + QR</a></li>
+    <li><a href="fiche-mvt-clientele-bt-editable-qr.html">Fiche MVT clientèle BT — saisie + QR</a> (paysage)</li>
+    <li><a href="police-abonnement-editable-qr.html">Police d'abonnement — saisie + QR</a></li>
+  </ul>
+  <div class="note">
+    <strong>Note :</strong> le logo est le fichier <code>snel-logo.png</code>. Les versions <strong>saisie</strong> chargent <code>snel-forms-editable.css</code> et <code>snel-forms-editable.js</code> ; les versions <strong>saisie + QR</strong> ajoutent <code>snel-forms-qr.css</code>, <code>snel-forms-qr.js</code> et la librairie <strong>qrcodejs</strong> (CDN). Par défaut le QR encode l’URL de la page ; pour un texte fixe, définir <code>data-qr-text="…"</code> sur <code>&lt;body&gt;</code>. La saisie n’est pas enregistrée sur disque. Pour usage officiel, se référer aux modèles SNEL.
+  </div>
+</body>
+</html>
